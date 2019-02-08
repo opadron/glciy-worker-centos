@@ -1,8 +1,8 @@
 FROM scottwittenburg/spack_builder_centos_7
 
-RUN yum update -y            \
- && yum install -y entr wget \
- && rm -rf /var/cache/yum    \
+RUN yum update -y         \
+ && yum install -y wget   \
+ && rm -rf /var/cache/yum \
  && yum clean all
 
 RUN RELEASES='https://github.com/Yelp/dumb-init/releases/download' \

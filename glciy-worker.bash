@@ -101,7 +101,10 @@ while true ; do
 
     if [ -n "$encoded_true_ref" \
          -a "$encoded_ref" '!=' "$encoded_true_ref" ] ; then
-        ln -s "$encoded_true_ref" "$cache_dir/$encoded_ref"
+            (
+                ln -s "$encoded_true_ref" "$cache_dir/$encoded_ref" ||
+                true
+            ) &> /dev/null
         base_ref="$encoded_true_ref"
     fi
 
